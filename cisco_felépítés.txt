@@ -1,0 +1,137 @@
+Minden fő telephelyen megtalálható egy tűzfal
+Routereken: OSPF
+
+	
+Szerver szoba:
+	WEB szerver: 192.168.2.100 /24
+	DNS szerver: 192.168.2.101 /24
+	DHCP szerver: 192.168.2.102 /24
+	FTP szerver: 192.168.2.103 /24
+	Tűzfal: 
+	név: Tuzfalnegyedik
+	Jelszó: Fr3dd13
+	username: admin jelszó: ABCdef123
+	ip címek: 
+	gig1/1: 192.168.2.254 /24
+
+
+Admin szoba:
+	asztali gép: 192.168.5.10 /24
+	laptop: 192.168.5.11 /24
+
+Admin router
+Se0/2/1: 10.11.10.2 /30 főnök pipa
+Se0/2/0: 10.10.11.2 /30 központ pipa
+Se0/3/1: 10.11.11.1 /30 IT pipa
+Gig0/0: 192.168.5.254 /24
+
+Főnök iroda:
+	laptop: DHCP kliens
+	asztali gép: 192.168.4.10 /24
+	telefon: DHCP kliens
+	nyomtató: DHCP kliens
+	Tűzfal: A főnök irodájában és az admin szóbában egy tűzfalon van
+	név: Tuzfalharmadik
+	Jelszó: Fr3dd13
+	username: admin jelszó: ABCdef123
+	ip címek: 
+	gig1/1: 192.168.4.254 /24
+	gig1/2: 192.168.5.254 /24
+
+
+Főnök iroda router
+Se0/3/0: 10.11.10.1 /30 admin piapa
+Se0/3/1: 10.10.10.2 /30 központ pipa
+Se0/2/0: 10.12.10.1 /30 titkarnő pipa
+Gig0/0: 192.168.4.254 /24
+
+Dolgozók irodája:
+Minden osztálynak külön munkaeszközök:
+	laptopok(3): 
+	asztali gépek(4): 
+Tűzfal: 
+	név: Tuzfalelso
+	Jelszó: Fr3dd13
+	username: admin jelszó: ABCdef123
+	ip címek: 
+	gig1/1: 192.168.10.1 /24
+	gig1/2: 192.168.20.1 /24
+	gig1/3: 192.168.30.1 /24
+
+Dolgozo SW: Vlan10, Vlan20, Vlan30
+dolgozo penzugy SW: Vlan10
+dolgozo ugyfel SW: Vlan20
+dolgozo HR SW: Vlan30
+
+Dolgozók router:
+	alinterfacek: Fa0/0.10 ip address: 192.168.1.0 /26
+		      Fa0/0.20 ip address: 192.168.1.64 /26
+		      Fa0/0.30 ip address: 192.168.1.128 /26
+
+Dolgozók router:
+Se0/0/0: 10.11.12.2 /30 IT router pipa
+Se0/1/0: 10.13.10.2 /30 titkárnő pipa
+Se0/1/1: 10.10.13.2 /30 központ pipa
+ACL: 192.168.1.128 /26-os hálózat átengedve a többi letiltva
+ 
+
+Titkárnők irodája
+	minden titkárnői osztálynak külön:
+	asztali gép(4): DHCP kliens
+	nyomtató: DHCP kliens
+	telefon: DHCP kliens
+Tűzfal: 
+	név: Tuzfalmasodik
+	Jelszó: Fr3dd13
+	username: admin jelszó: ABCdef123
+	ip címek: 
+	gig1/1: 192.168.10.2 /24
+	gig1/2: 192.168.20.2 /24
+	gig1/3: 192.168.30.2 /24
+
+Titkárnő SW: Vlan10, Vlan20, Vlan30
+titkar penzugy SW: Vlan10
+titkar ugyfel SW: Vlan20
+titkar HR SW: Vlan30
+
+Titkárnő router:
+	alinterfacek: Fa0/0.10 ip address: 192.168.3.0 /26
+		      Fa0/0.20 ip address: 192.168.3.64 /26
+		      Fa0/0.30 ip address: 192.168.3.128 /26
+
+Titkárnői iroda router
+Se0/0/0: 10.10.12.2 /30 központ pipa
+Se0/1/1: 10.13.10.1 /30 dolgozók pipa
+Se0/1/0: 10.12.10.2 /30 főnök pipa
+Fa0/0: 192.168.3.254 /24
+ACL: 192.168.3.128 /26-os hálózat átengedve a többi letiltva
+
+
+vendégek:
+	wifis router WRT300N:
+	Kezelő felület jelszava: Admin123
+	ip: 192.168.6.254 /24
+	def.gateway: 192.168.6.1
+	4 telefon csatlakozik erre a hálózatra
+	Kliensek hálózata: 172.20.20.1 /24
+		Start ip: 172.20.20.10 /24
+			max: 20 eszköz
+	Kovta_Net
+		Jelszó: Fr3dd13ke
+		
+	Access point
+		Guest_vendeg:
+			Jelszó: ABCdef123
+	telefonok(5): DHCP kliensek
+	
+Központi router
+Se0/0/0: 10.10.10.1 /30 főnök pipa
+Se0/1/0: 10.10.11.1 /30 admin pipa
+Se0/0/1: 10.10.12.1 /30 titkárnő pipa
+Se0/1/1: 10.10.13.1 /30 dolgozók pipa
+Fa0/1: 192.168.2.254 /24
+
+IT szektor router 
+Se0/3/0: 10.11.11.2 /30
+Se0/3/1: 10.11.12.1 /30
+Gig0/0: 2001:db8:3c4d::1 /64
